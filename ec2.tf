@@ -3,7 +3,7 @@ resource "aws_instance" "web" { #
   ami             = var.ami
   instance_type   = var.instance_type
   associate_public_ip_address = "true"
-  key_name = aws_key_pair.key_resource.key_name
+  key_name = aws_key_pair.key _resource.key_name
   security_groups = ["allow_ssh_http"] #refer only by its name not resource name
   user_data = file("userdata_file")
 
