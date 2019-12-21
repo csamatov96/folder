@@ -7,6 +7,18 @@ resource "aws_instance" "web" { #
   security_groups = ["allow_ssh_http"] #refer only by its name not resource name
   user_data = file("userdata_file")
 
+  provisioner "remote-exec" { 
+    connection { 
+      host        = self.public_ip 
+      type        = "ssh" 
+      user        = var.user 
+      private_key = file(var.ssh_key_location) 
+    } 
+    inline = [ 
+      "sudo yum install -y epel-release", 
+    ] 
+  } 
+
   lifecycle{
     prevent_destroy = false
   }
