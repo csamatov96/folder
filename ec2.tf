@@ -16,6 +16,8 @@ resource "aws_instance" "web" { #
   }
 
   resource "aws_instance" "manually" {
-    # (resource arguments)
+    ami = "ami-00068cd7555f543d5"
+    key_name = aws_key_pair.key_resource.key_name
+    security_groups = ["allow_ssh_http"]  
   }
 }
