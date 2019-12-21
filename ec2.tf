@@ -23,6 +23,18 @@ resource "aws_instance" "web" { #
     prevent_destroy = false
   }
 
+  provisioner "file" { 
+      source      = "awx" 
+      destination = "/tmp/" 
+      connection { 
+         host        = self.public_ip 
+         type        = "ssh" 
+         user        = var.user
+         private_key = file(var.ssh_key_location)
+      } 
+
+  } 
+
   tags = {
     Name = "ec2_instance"
   }
