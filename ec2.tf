@@ -12,7 +12,7 @@ resource "aws_instance" "web" { #
   }
 
   tags = {
-    Name = "ec2_instance${count.index +1}"
+    Name = "ec2_instance"
   }
 
 #resource "aws_instance" "manually" {
