@@ -1,5 +1,8 @@
 variable "ami" {}
 variable "instance_type" {}
-variable "count" {}
+variable "count_instance" {}
+variable "associate_public_ip_address" {}
+
+
 
 
